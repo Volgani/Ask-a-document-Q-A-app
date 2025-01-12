@@ -4,12 +4,6 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
-import chromadb
-
-client = chromadb.Client()
-collection = client.get_collection(name="chroma_docs")
-results = collection.get(ids=["page"])["documents"]
-print(results) 
 
 def generate_response(uploaded_file, openai_api_key, query_text):
     # Load document if file is uploaded
